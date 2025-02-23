@@ -10,7 +10,7 @@ export const createUser = async (userData) => {
 
   const existingUser = await User.findOne({email});
     if (existingUser) {
-      return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
+      throw new Error('Email already exists. Please use a different email.');
     }
 
   return User.create({

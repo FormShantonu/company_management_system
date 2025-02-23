@@ -7,7 +7,7 @@ import validate from "../middleware/validateRequest.js";
 
 const router = express.Router();
 
-router.post("/", validate("createUser"), createCompany);
+router.post("/", validate("createCompany"), createCompany);
 router.get("/:companyId", validate("getCompany"), getCompanyDetails);
 
 export default router;

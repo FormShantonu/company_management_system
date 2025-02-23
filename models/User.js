@@ -18,14 +18,14 @@ const userSchema = new mongoose.Schema(
         "Please fill a valid email address",
       ],
     },
-    company: {
+    companyId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Company",
       required: [true, "Company ID is required"],
     },
     role: {
       type: String,
-      enum: ["user", "admin", "supervisor"],
+      enum: ["user", "admin"],
       default: "user",
     },
     companyName: {

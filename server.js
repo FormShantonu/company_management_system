@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 import companyRoutes from "./routes/companies.js";
 import userRoutes from './routes/user.routes.js';
 import searchRoutes from './routes/searchRoutes.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 dotenv.config();
 connectDB();
@@ -15,6 +16,9 @@ app.use(express.json());
 app.use("/companies", companyRoutes);
 app.use('/users', userRoutes);
 app.use('/search', searchRoutes);
+
+// Error Handling Middleware
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
